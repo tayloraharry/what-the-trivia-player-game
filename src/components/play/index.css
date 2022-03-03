@@ -1,0 +1,13 @@
+.answer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.answer {
+  padding: 25px 50px;
+  border: 1px solid black;
+  margin: 10px;
+  cursor: pointer;
+}
