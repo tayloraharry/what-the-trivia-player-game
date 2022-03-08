@@ -96,8 +96,7 @@ const Join = () => {
                 roomCode.length < 4 ||
                 !name ||
                 !roomFound ||
-                (joinedGame && !vip) || 
-                (vip && users.length < 2 )
+                (joinedGame && !vip)
               }
               onClick={vip ? handleStartGame : handleJoinRoom}
             >

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { IRoomObject, IRoomUserObject } from "what-the-trivia-types";
 import { startNextQuestion, submitAnswer } from "../../socketio.service";
 import { RootState } from "../../store";
+import {decode} from 'html-entities'
 import "./index.css";
 
 const Play = () => {
@@ -22,10 +22,6 @@ const Play = () => {
     }
   }, [room.currentQuestion.number]);
 
-  if (answerSubmitted) {
-    return <div className="answer-container">Waiting for other players</div>;
-  }
-
   if (room.currentQuestion.number === 0) {
     if (user.vip) {
       return <button onClick={() => startNextQuestion(room.id)}>hey</button>
@@ -34,22 +30,23 @@ const Play = () => {
     }
   }
 
+  if (room.currentQuestion.timeExpired) {
+    if (user.vip) {
+      return <button onClick={() => startNextQuestion(room.id)}>Next Question</button>
+    }
+    return <h1>Wait for next question</h1>
+  }
+
+  if (answerSubmitted) {
+    return <h1>Waiting for other players</h1>
+  }
+
   return (
     <div className="answer-container">
-      {["A", "B", "C", "D"].map((answer, index) => {
-        return (
-          <div
-            className="answer"
-            style={{
-              backgroundColor: ["#375E97", "#FB6542", "#FFBB00", "#3F681C"][
-                index
-              ],
-            }}
-            onClick={() => handleSubmitAnswer(answer)}
-          >
-            <h1>{answer}</h1>
-          </div>
-        );
+      {room.currentQuestion.question.answers.map(answer => {
+        return <div className="answer" onClick={() => handleSubmitAnswer(answer.option)}>
+          <span className="answer__text">{answer.option}</span>
+        </div>
       })}
     </div>
   );

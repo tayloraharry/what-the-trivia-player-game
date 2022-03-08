@@ -13,6 +13,7 @@
     "@types/react-dom": "^17.0.11",
     "@types/socket.io-client": "^3.0.0",
     "antd": "^4.18.8",
+    "html-entities": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
@@ -21,7 +22,7 @@
     "socket.io-client": "^4.4.1",
     "typescript": "^4.5.5",
     "web-vitals": "^2.1.4",
-    "what-the-trivia-types": "^1.0.2"
+    "what-the-trivia-types": "^1.0.18"
   },
   "scripts": {
     "dev": "set PORT=3001 && react-scripts start",

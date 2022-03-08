@@ -1,13 +1,39 @@
 .answer-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
 .answer {
-  padding: 25px 50px;
-  border: 1px solid black;
-  margin: 10px;
-  cursor: pointer;
+  background-color: white;
+  border: 1px solid;
+  padding: 1vw;
+  width: 100%;
+  text-align: start;
+  margin-bottom: 1vw;
+  text-align: center;
+}
+
+.answer__text {
+  color: white;
+  font-size: 3vw;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.answer:nth-child(1) {
+  background-color: #375E97
+}
+
+.answer:nth-child(2) {
+  background-color: #FB6542
+}
+
+.answer:nth-child(3) {
+  background-color: #FFBB00
+}
+
+.answer:nth-child(4) {
+  background-color: #3F681C
 }
